@@ -1,5 +1,5 @@
 ---
-title: "Advanced Dashboarding"
+title: "Covid Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: row
@@ -8,80 +8,213 @@ output:
     source_code: embed
     theme:
       version: 4
-      bootswatch: sandstone
+      bootswatch: flatly
 ---
 
-<!-- https://github.com/danielpballer/Advanced_Dashboarding/blob/main/index.Rmd --> 
 
 ```{r setup, include=FALSE}
+#### Covid Dashboard ####
+# Title: Index
+# Date: May 24, 2023
+# Description: This file loads in the 
+# necessary packages, functions, and data.
+# Then creates data visuals and analysis in 
+# the form of an interactive dashboard. 
+here::i_am("index.Rmd")
+
+#### Load Packages ####
 library(flexdashboard)
 library(tidyverse)
-library(palmerpenguins)
 library(plotly)
 library(DT)
 library(fontawesome)
-data("penguins")
 ```
 
 
-Plots {data-navmenu="Pages"}
+Cases {data-navmenu="United States"}
 =======================================================================
 
 Sidebar {.sidebar}
 -----------------------------------------------------------------------
 
-### Penguin Stats
+### Cases Stats
 
-The number of penguins in the data is `r nrow(penguins)`
+(content coming...)
 
 Row
 ----------------------------------------------------------------------
 
-### Number of penguins
+### Total Number of Cases in the United States
 
 ```{r}
-valueBox(nrow(penguins), icon = "fa-linux")
+valueBox("103,910,034", color = "#b52121")
 ```
 
-### Number of Butts
+### Total Percent of Cases 
 
 ```{r}
-valueBox(nrow(penguins), icon = "fa-virus-covid", color = "#76192c")
+valueBox("30", icon = "fa-stethoscope", color = "#b52121")
 ```
+
 
 Column {.tabset}
 -----------------------------------------------------------------------
 
-### Scatter plot of bill length vs bill depth
+### Total Number of Covid Cases Map
+
+(Content Coming Soon...)
+
+### Covid Cases Percent of Population Map
+
+(Content Coming Soon...)
+
+### Graph Num
+
+(Content Coming Soon...)
+
+### Graph %
+
+(Content Coming Soon...)
+
+Deaths {data-navmenu="United States"}
+=======================================================================
+
+Sidebar {.sidebar}
+-----------------------------------------------------------------------
+
+### Deaths Stats
+
+(content coming...)
+
+Row
+----------------------------------------------------------------------
+
+### Total Number of Deaths in the United States
 
 ```{r}
-a = penguins %>% ggplot(aes(x = bill_length_mm, y = bill_depth_mm, color = species))+
-  geom_point()
-ggplotly(a)
+valueBox("10,000", color = "#b52121")
+```
+
+### Total Percent of Deaths 
+
+```{r}
+valueBox("5%", icon = "fa-skull", color = "#b52121")
 ```
 
 
+Column {.tabset}
+-----------------------------------------------------------------------
 
-### Chart B
+### Total Number of Covid Deaths Map
+
+(Content Coming Soon...)
+
+### Covid Deaths Percent of Population Map
+
+(Content Coming Soon...)
+
+### Graph Num
+
+(Content Coming Soon...)
+
+### Graph %
+
+(Content Coming Soon...)
+
+Cases {data-navmenu="Oregon"}
+=======================================================================
+
+Sidebar {.sidebar}
+-----------------------------------------------------------------------
+
+### Cases Stats
+
+(content coming...)
+
+Row
+----------------------------------------------------------------------
+
+### Total Number of Cases in the Oregon
 
 ```{r}
-penguins %>% ggplot(aes(x = body_mass_g, y = sex, fill = sex))+
-  geom_boxplot()
+valueBox("103,910", color = "#b52121")
 ```
 
-### Chart C
+### Total Percent of Cases 
 
 ```{r}
-penguins %>% ggplot(aes(x = flipper_length_mm, fill = species))+
-  geom_histogram()+
-  facet_wrap(~species)
+valueBox("3%", icon = "fa-stethoscope", color = "#b52121")
 ```
 
-Data {data-navmenu="Pages"}
-=================================================================
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Total Number of Covid Cases Map
+
+(Content Coming Soon...)
+
+### Covid Cases Percent of Population Map
+
+(Content Coming Soon...)
+
+### Graph Num
+
+(Content Coming Soon...)
+
+### Graph %
+
+(Content Coming Soon...)
+
+Deaths {data-navmenu="Oregon"}
+=======================================================================
+
+Sidebar {.sidebar}
+-----------------------------------------------------------------------
+
+### Deaths Stats
+
+(content coming...)
+
+Row
+----------------------------------------------------------------------
+
+### Total Number of Deaths in Oregon
 
 ```{r}
-penguins %>% datatable(extensions = "Buttons",
-                       options = list(dom = "Blfrtip",
-                                      buttons = c("copy", "csv", "excel", "pdf", "print")))
+valueBox("10,000", color = "#b52121")
 ```
+
+### Total Percent of Deaths 
+
+```{r}
+valueBox("5%", icon = "fa-stethoscope", color = "#b52121")
+```
+
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Total Number of Covid Deaths Map
+
+(Content Coming Soon...)
+
+### Covid Deaths Percent of Population Map
+
+(Content Coming Soon...)
+
+### Graph Num
+
+(Content Coming Soon...)
+
+### Graph %
+
+(Content Coming Soon...)
+
+About
+=======================================================================
+
+(Content Coming Soon...)
+
+
+
